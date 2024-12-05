@@ -24,7 +24,7 @@ jobs:
       - name: Build and upload package
         run: |
            py -m build
-          twine upload dist/*
+           twine upload dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: pypi-AgEIcHlwaS5vcmcCJDM3OWIyNTJlLTlkNzctNGU4My1hNWJlLTdlNGZmNTYxYmYyMwACKlszLCI0OGYyZDUyMS1mNjg3LTQwNWItODI4YS1kODVmNmM2NGVmNjEiXQAABiCfxK-UZKgH9mrYDMneJ_SnMlmolxMwH6v80jB7d6OkOw
