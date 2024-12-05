@@ -33,7 +33,3 @@ setup(
     keywords="education, interactive-learning, python, library",
     
 )
-
-    keywords="education, interactive-learning, python, library",
-    
-)
