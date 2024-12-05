@@ -24,7 +24,7 @@ jobs:
 
       - name: Build and upload package
         run: |
-          python setup.py sdist bdist_wheel
+           py -m build
           twine upload dist/*
         env:
           TWINE_USERNAME: __token__
