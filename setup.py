@@ -11,10 +11,6 @@ setup(
     version="0.1.1",
     packages=find_packages(),
     install_requires=[
-        "aiohttp>=3.8.1",
-        "beautifulsoup4>=4.11.0",
-        "numpy>=1.21.0",
-        "matplotlib>=3.4.0",
         "setuptools>=56.0.0",
     ],
     author="Barbara Asiamah",
