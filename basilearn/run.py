@@ -1,6 +1,6 @@
 # basilearn/run.py
 
-from basilearn import Basilearn
+from basilearn.basilearn import Basilearn
 
 def main():
     # Create an instance of the Basilearn class
