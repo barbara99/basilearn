@@ -27,5 +27,11 @@ setup(
     ],
     python_requires=">=3.7",
     keywords="education, interactive-learning, python, library",
+    entry_points={
+    'console_scripts': [
+        'basilearn-run = basilearn.run:main',  
+    ]
+},
+
     
 )
