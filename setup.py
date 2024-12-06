@@ -8,7 +8,7 @@ with io.open("README.md", encoding='utf-8') as f:
 
 setup(
     name="basilearn",
-    version="0.1.222",
+    version="0.1.223",
     packages=find_packages(include=["basilearn", "basilearn.*"]),
     install_requires=[
         "setuptools>=56.0.0",

@@ -1,32 +1,51 @@
 # Basilearn 📚 #
 
-Basilearn is a Python project for learning programming concepts interactively. It provides a hands-on approach to mastering basic Python topics like variables, data types, and operators.
+Basilearn makes learning Python a breeze! It’s a fun, interactive package that helps you master programming basics with ease, covering essential topics like variables, data types, operators, and more. The best part? You can use it anywhere—even notebooks!.
 
-## 🚀 How to Use ##
+## 🚀 Installation and Usage ##
 
-Clone or download the project:
+### Install the package: ###
 
-```
-git clone https://github.com/barbara99/basilearn.git
-```
-
-Navigate to the project folder:
+Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and type:
 
 ```
-cd basilearn
+pip install basilearn
 ```
 
-Open and run the main.py file to start learning:
+### Start the fun: ###
+
+To begin interactive lessons, type the following in your terminal:
 
 ```
-python main.py
+basilearn-run
 ```
 
-## 📖 Features ##
-- Interactive Lessons: Learn Python basics step by step.
-- Real-time Feedback: Get immediate results as you work through exercises.
-- Offline Usable: Perfect for offline learning without requiring an internet connection.
+### Use in Python Notebooks: ###
 
-## 🚧 Roadmap(Next Steps) ##
-- Add more lessons on Python topics
-- Build the framework into a full Python package for easy installation via pip.
+If you prefer coding in Jupyter or Colab, Basilearn works there too! Simply run the following in a notebook cell:
+
+```
+!pip install basilearn
+!basilearn-run
+```
+
+## 🎉 Why Basilearn? ##
+
+- Interactive & Fun: Learn Python basics while having a blast!
+- Accessible Anywhere: Works on your laptop, offline, or even on Google Colab!
+- Immediate Feedback: See results instantly and build confidence.
+- Beginner-Friendly: Tailored for those just starting their coding journey.
+
+## 🖥️ Tools You Can Use: ##
+
+- Windows: Use Command Prompt (search for "cmd" in the Start Menu).
+- macOS/Linux: Open Terminal (search for "Terminal" or press Ctrl+Alt+T).
+- Notebooks : Open Jupyter or to Google Colab, and enter the commands above.
+
+## 🌟 Next Steps ##
+
+We’re just getting started! Here’s what’s planned for Basilearn:
+
+- More Lessons: Cover advanced topics like loops, functions, and data structures.
+- Simple UI: Develop a user-friendly interface for those who prefer visual learning over the terminal.
+- Community Contributions: Open to lesson ideas and contributions!
