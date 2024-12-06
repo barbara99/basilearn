@@ -1,7 +1,10 @@
+# basilearn/run.py
+
 from basilearn import Basilearn
 
-# Create an instance of the Basilearn class
-basilearn = Basilearn()
+def main():
+    # Create an instance of the Basilearn class
+    basilearn = Basilearn()
 
-# Call it to run the program
-basilearn()
+    # Call it to run the program
+    basilearn()
