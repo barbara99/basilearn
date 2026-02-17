@@ -37,6 +37,11 @@ def lesson_control_flow():
             code_lines.append(line)
 
         code_string = "\n".join(code_lines)
+        
+        # Check for empty input
+        if not code_string.strip():
+            print("❌ You didn't write any code. Please write an `if` statement before typing END.\n")
+            continue
 
         print("\nYour code:")
         print(code_string)

@@ -79,6 +79,3 @@ def lesson_operators():
                 break  # Exit the loop if the user doesn't want to try another example
         except Exception as e:
             print(f"❌ Error: {e}. Please ensure you're using the correct syntax and try again.\n")
-
-
-
