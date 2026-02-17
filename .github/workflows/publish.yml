@@ -2,60 +2,54 @@ name: Publish Python Package
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"  # only triggers on tag pushes (recommended for releases)
 
 jobs:
-  build:
-    name: Build distribution 📦
+  build-and-publish:
+    name: Build and Publish 📦
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      # 2️⃣ Set up Python
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.12
+          python-version: "3.12"
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Install build module
-        run: python -m pip install --upgrade build
 
-      - name: Install build module
+      # 4️⃣ Install build and twine
+      - name: Install build and twine
         run: |
-          python -m pip install --upgrade build
-      - name: Install twine
+          python -m pip install --upgrade build twine
+
+      # 5️⃣ Clean previous builds
+      - name: Clean old builds
         run: |
-          python -m pip install --upgrade twine
-      - name: Build and upload package
-        run: |
-           python -m build
-           twine upload dist/*
+          rm -rf dist build *.egg-info
+
+      # 6️⃣ Build package
+      - name: Build package
+        run: python -m build
+
+      # 7️⃣ Publish to PyPI
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: pypi-AgEIcHlwaS5vcmcCJDM3OWIyNTJlLTlkNzctNGU4My1hNWJlLTdlNGZmNTYxYmYyMwACKlszLCI0OGYyZDUyMS1mNjg3LTQwNWItODI4YS1kODVmNmM2NGVmNjEiXQAABiCfxK-UZKgH9mrYDMneJ_SnMlmolxMwH6v80jB7d6OkOw
+
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: pypi-AgEIcHlwaS5vcmcCJDM3OWIyNTJlLTlkNzctNGU4My1hNWJlLTdlNGZmNTYxYmYyMwACKlszLCI0OGYyZDUyMS1mNjg3LTQwNWItODI4YS1kODVmNmM2NGVmNjEiXQAABiCfxK-UZKgH9mrYDMneJ_SnMlmolxMwH6v80jB7d6OkOw
 
-  publish-to-pypi:
-    name: >-
-      Publish Python 🐍 distribution 📦 to PyPI
-    if: startsWith(github.ref, 'refs/tags/')  # only publish to PyPI on tag pushes
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/p/basilearn  # Replace <package-name> with your PyPI project name
-    permissions:
-      id-token: write  # IMPORTANT: mandatory for trusted publishing
-    steps:
-    - name: Download all the dists
-      uses: actions/download-artifact@v6
-      with:
-        name: python-package-distributions
-        path: dist/
-    - name: Publish distribution 📦 to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1    
+  
