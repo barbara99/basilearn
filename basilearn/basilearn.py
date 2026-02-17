@@ -1,6 +1,7 @@
 from basilearn.lesson_operators import lesson_operators as op_lesson
 from basilearn.lesson_variables import lesson_variables as var_lesson
 from basilearn.lesson_controlflow import lesson_control_flow as cf_lesson
+from basilearn.lesson_loops import lesson_loops as lps_lesson
 
 class Basilearn:
     def __call__(self):
@@ -10,8 +11,9 @@ class Basilearn:
             print("Choose a lesson to start:")
             print("1. Lesson 1: Variables and Data Types")
             print("2. Lesson 2: Operators and Expressions")
-            print("3. Lesson 3: Control Flow")            
-            print("4. Exit the program")
+            print("3. Lesson 3: Control Flow")
+            print("4. Lesson 4: Loops")            
+            print("5. Exit the program")
 
             choice = input("Enter the number of your choice: ").strip()
 
@@ -22,7 +24,9 @@ class Basilearn:
             elif choice == '3':
                 cf_lesson()  # Call Lesson 3
             elif choice == '4':
+                lps_lesson()  # Call Lesson 4            
+            elif choice == '5':
                 print("Thank you for using the Python Learning Program! Goodbye!")
                 break  # Exit the program
             else:
-                print("Invalid choice. Please enter 1, 2, or 3.\n")
+                print("Invalid choice. Please enter 1, 2, 3, 4, or 5.\n")
