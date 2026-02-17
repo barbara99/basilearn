@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  upload:
+  build:
+    name: Build distribution 📦
     runs-on: ubuntu-latest
 
     steps:
