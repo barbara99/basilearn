@@ -177,4 +177,3 @@ def lesson_functions():
     print("Great work! 🚀")
 
 
-lesson_functions()
