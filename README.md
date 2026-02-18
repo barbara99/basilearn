@@ -43,7 +43,7 @@ If you prefer coding in Jupyter or Colab, Basilearn works there too! Simply run 
 - Notebooks : Open Jupyter or to Google Colab, and enter the commands above.
 
 ## 🌟 Next Steps ##
-
+ 
 We’re just getting started! Here’s what’s planned for Basilearn:
 
 - More Lessons: Cover advanced topics like loops, functions, and data structures.
