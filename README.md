@@ -1,4 +1,4 @@
-![Python package tests](https://github.com/barbaraasiamah/basilearn/actions/workflows/tests.yml/badge.svg)
+![Python package tests](https://github.com/barbara99/basilearn/actions/workflows/tests.yml/badge.svg)
 
 # Basilearn 📚 #
 
