@@ -1,3 +1,5 @@
+![Python package tests](https://github.com/barbaraasiamah/basilearn/actions/workflows/tests.yml/badge.svg)
+
 # Basilearn 📚 #
 
 Basilearn makes learning Python a breeze! It’s a fun, interactive package that helps you master programming basics with ease, covering essential topics like variables, data types, operators, and more. The best part? You can use it anywhere—even notebooks!.
@@ -49,3 +51,4 @@ We’re just getting started! Here’s what’s planned for Basilearn:
 - More Lessons: Cover advanced topics like loops, functions, and data structures.
 - Simple UI: Develop a user-friendly interface for those who prefer visual learning over the terminal.
 - Community Contributions: Open to lesson ideas and contributions!
+
