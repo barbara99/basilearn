@@ -1,3 +1,6 @@
+![Python package tests](https://github.com/barbara99/basilearn/actions/workflows/tests.yml/badge.svg)
+
+
 
 # Basilearn 📚 #
 
@@ -51,4 +54,3 @@ We’re just getting started! Here’s what’s planned for Basilearn:
 - Simple UI: Develop a user-friendly interface for those who prefer visual learning over the terminal.
 - Community Contributions: Open to lesson ideas and contributions!
 
-![Python package tests](https://github.com/barbara99/basilearn/actions/workflows/tests.yml/badge.svg)
