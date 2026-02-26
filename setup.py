@@ -8,7 +8,7 @@ with io.open("README.md", encoding='utf-8') as f:
 
 setup(
     name="basilearn",
-    version="0.2.4",
+    version="0.2.5",
     packages=find_packages(include=["basilearn", "basilearn.*"]),
     install_requires=[
         "setuptools>=56.0.0",
@@ -29,7 +29,7 @@ setup(
     keywords="education, interactive-learning, python, library",
     entry_points={
     'console_scripts': [
-        'basilearn-run = basilearn.run:main',  
+        'basilearn = basilearn.run:main',  
     ]
 },
 
