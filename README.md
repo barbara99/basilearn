@@ -21,7 +21,7 @@ pip install basilearn
 To begin interactive lessons, type the following in your terminal:
 
 ```
-basilearn-run
+basilearn
 ```
 
 ### Use in Python Notebooks: ###
@@ -30,7 +30,7 @@ If you prefer coding in Jupyter or Colab, Basilearn works there too! Simply run 
 
 ```
 !pip install basilearn
-!basilearn-run
+!basilearn
 ```
 
 ## 🎉 Why Basilearn? ##
