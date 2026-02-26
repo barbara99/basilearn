@@ -22,8 +22,10 @@ def lesson_loops():
 
     while True:
         print("\nWrite a `while` loop.")
-        print("When you're done, type 'END' on a new line.")
-        print("Example condition: count < 5\n")
+        print("• You MUST use `while`")
+        print("• Include a condition")
+        print("• Update the condition variable (to avoid infinite loops)")
+        print("• Type 'END' on a new line when done\n")
 
         code_lines = []
 
@@ -42,19 +44,26 @@ def lesson_loops():
             print("❌ You didn't write any code. Please try again.\n")
             continue
 
+        if "while " not in code_string:
+            print("❌ Your code must include a `while` loop.\n")
+            continue
+
         print("\nYour code:")
         print(code_string)
         print("\nExecuting your code...\n")
 
         try:
-            exec(code_string)
-            print("\n✅ Well done! Your while loop worked.\n")
+            exec(code_string, {})
+            print("✅ Well done! Your `while` loop worked correctly.\n")
         except IndentationError:
-            print("❌ Indentation error. Check your spacing.\n")
-        except SyntaxError:
-            print("❌ Syntax error. Check your loop structure.\n")
+            print("❌ Indentation error. Remember to indent code inside the loop.\n")
+            continue
+        except SyntaxError as e:
+            print(f"❌ Syntax error: {e}. Check your condition and colon usage.\n")
+            continue
         except Exception as e:
-            print(f"❌ Error: {e}\n")
+            print(f"❌ Runtime error: {e}. Check your logic.\n")
+            continue
 
         again = input("Do you want to try another while loop? (yes/no): ").lower()
         if again != "yes":
@@ -64,7 +73,7 @@ def lesson_loops():
     # SECTION 2: FOR LOOPS
     # ===============================
     print("\nSECTION 2: For Loops")
-    print("A `for` loop repeats over a sequence (like a range of numbers).\n")
+    print("A `for` loop repeats over a sequence (like a list or range).\n")
     print("Example:")
     print("    for i in range(5):")
     print("        print(i)\n")
@@ -73,8 +82,10 @@ def lesson_loops():
 
     while True:
         print("\nWrite a `for` loop.")
-        print("When you're done, type 'END' on a new line.")
-        print("Example: for i in range(1, 6):\n")
+        print("• You MUST use `for`")
+        print("• Loop over a sequence (range, list, string, etc.)")
+        print("• Indent correctly")
+        print("• Type 'END' on a new line when done\n")
 
         code_lines = []
 
@@ -93,19 +104,26 @@ def lesson_loops():
             print("❌ You didn't write any code. Please try again.\n")
             continue
 
+        if "for " not in code_string:
+            print("❌ Your code must include a `for` loop.\n")
+            continue
+
         print("\nYour code:")
         print(code_string)
         print("\nExecuting your code...\n")
 
         try:
-            exec(code_string)
-            print("\n✅ Great job! Your for loop worked.\n")
+            exec(code_string, {})
+            print("✅ Great job! Your `for` loop worked correctly.\n")
         except IndentationError:
-            print("❌ Indentation error. Check your spacing.\n")
-        except SyntaxError:
-            print("❌ Syntax error. Check your loop structure.\n")
+            print("❌ Indentation error. Check spacing inside the loop.\n")
+            continue
+        except SyntaxError as e:
+            print(f"❌ Syntax error: {e}. Check your loop structure.\n")
+            continue
         except Exception as e:
-            print(f"❌ Error: {e}\n")
+            print(f"❌ Runtime error: {e}. Check your logic.\n")
+            continue
 
         again = input("Do you want to try another for loop? (yes/no): ").lower()
         if again != "yes":
@@ -115,8 +133,10 @@ def lesson_loops():
     # RECAP
     # ===============================
     print("\n🎉 Lesson 4 Recap: Loops")
-    print("- `while` loops repeat while a condition is True.")
+    print("- `while` loops repeat while a condition is true.")
     print("- `for` loops repeat over a sequence.")
-    print("- Indentation is very important in loops.")
-    print("- Use loops to avoid repeating code.\n")
+    print("- Always update loop conditions to avoid infinite loops.")
+    print("- Indentation controls what runs inside the loop.\n")
     print("Excellent work! 🚀")
+    
+    

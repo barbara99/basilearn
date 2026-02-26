@@ -7,60 +7,197 @@ def lesson_control_flow():
 
     input("Press Enter to continue...\n")
 
-    # Section 1: `if` Statements
-    print("An `if` statement allows you to execute code only if a condition is true.")
+    # ===============================
+    # SECTION 1: IF STATEMENTS
+    # ===============================
+    print("SECTION 1: `if` Statements")
+    print("An `if` statement allows your program to run code only if a condition is true.\n")
     print("Example:")
     print("    x = 10")
     print("    if x > 5:")
     print("        print('x is greater than 5')\n")
 
-    input("Press Enter to try it yourself...\n")
-
-    print("Now, let's try writing your own `if` statement!")
-    print("You can write multi-line code. When you're done, type 'END' on a new line.")
-    print("Remember: Type 'exit' to quit at any time.\n")
+    input("Press Enter to try writing your own `if` statement...\n")
 
     while True:
-        print("\nType your `if` statement below. To finish, type 'END' on a new line:")
+        print("\nWrite an `if` statement.")
+        print("• You MUST use `if`")
+        print("• Include a condition")
+        print("• Indent the code inside the if block")
+        print("• Type 'END' on a new line when done\n")
+
         code_lines = []
+
         while True:
-            line = input(">>> ").rstrip()  # Strip extra spaces, preserve indentation
+            line = input(">>> ")
             if line.lower() == "exit":
-                print("\nRecap: Control flow allows programs to make decisions.")
-                print("- `if`: Executes code if the condition is true.")
-                print("- `elif`: Tests additional conditions if the previous ones are false.")
-                print("- `else`: Executes code if all other conditions are false.\n")
-                print("Thank you for completing Lesson 2!")
+                print("\nLesson ended. Great job learning control flow!")
                 return
             if line.upper() == "END":
                 break
             code_lines.append(line)
 
         code_string = "\n".join(code_lines)
-        
-        # Check for empty input
+
+        # Empty input check
         if not code_string.strip():
-            print("❌ You didn't write any code. Please write an `if` statement before typing END.\n")
+            print("❌ You didn't write any code. Please try again.\n")
+            continue
+
+        # Must contain if
+        if "if " not in code_string:
+            print("❌ Your code must include an `if` statement.\n")
             continue
 
         print("\nYour code:")
         print(code_string)
-        print("\nExecuting your code...")
+        print("\nExecuting your code...\n")
 
         try:
-            exec(code_string)
-            print("✅ Great job! You successfully executed a control flow statement.\n")
+            exec(code_string, {})
+            print("✅ Great! Your `if` statement works correctly.\n")
+        except IndentationError:
+            print("❌ Indentation error. Remember to indent code inside `if`.\n")
+            continue
         except SyntaxError as e:
-            print(f"❌ Syntax error: {e}. Ensure your statement is properly formatted.\n")
+            print(f"❌ Syntax error: {e}. Check your condition and colon usage.\n")
+            continue
         except Exception as e:
-            print(f"❌ Error: {e}. Check your logic and try again!\n")
+            print(f"❌ Runtime error: {e}. Check your logic.\n")
+            continue
 
-        # Ask if they want to continue experimenting
-        continue_experimenting = input("Do you want to try another statement? (yes/no): ").strip().lower()
-        if continue_experimenting != 'yes':
-            print("\nRecap: Control flow allows programs to make decisions.")
-            print("- `if`: Executes code if the condition is true.")
-            print("- `elif`: Tests additional conditions if the previous ones are false.")
-            print("- `else`: Executes code if all other conditions are false.\n")
-            print("Thank you for completing Lesson 3!")
-            return
+        again = input("Do you want to try another `if` statement? (yes/no): ").lower()
+        if again != "yes":
+            break
+
+    # ===============================
+    # SECTION 2: IF / ELSE
+    # ===============================
+    print("\nSECTION 2: `if` / `else`")
+    print("An `else` block runs when the `if` condition is false.\n")
+    print("Example:")
+    print("    age = 15")
+    print("    if age >= 18:")
+    print("        print('Adult')")
+    print("    else:")
+    print("        print('Minor')\n")
+
+    input("Press Enter to try `if` with `else`...\n")
+
+    while True:
+        print("\nWrite an `if` statement WITH an `else`.")
+        print("• Use `if` and `else`")
+        print("• Indent correctly")
+        print("• Type 'END' when done\n")
+
+        code_lines = []
+
+        while True:
+            line = input(">>> ")
+            if line.lower() == "exit":
+                print("\nLesson ended. Great job learning control flow!")
+                return
+            if line.upper() == "END":
+                break
+            code_lines.append(line)
+
+        code_string = "\n".join(code_lines)
+
+        if not code_string.strip():
+            print("❌ You didn't write any code. Please try again.\n")
+            continue
+
+        if "if " not in code_string or "else:" not in code_string:
+            print("❌ Your code must include BOTH `if` and `else`.\n")
+            continue
+
+        print("\nExecuting your code...\n")
+
+        try:
+            exec(code_string, {})
+            print("✅ Excellent! Your `if/else` logic works.\n")
+        except IndentationError:
+            print("❌ Indentation error. Check spacing inside blocks.\n")
+            continue
+        except SyntaxError as e:
+            print(f"❌ Syntax error: {e}\n")
+            continue
+        except Exception as e:
+            print(f"❌ Error: {e}\n")
+            continue
+
+        again = input("Do you want to try another one? (yes/no): ").lower()
+        if again != "yes":
+            break
+
+    # ===============================
+    # SECTION 3: IF / ELIF / ELSE
+    # ===============================
+    print("\nSECTION 3: `if` / `elif` / `else`")
+    print("Use `elif` to check multiple conditions.\n")
+    print("Example:")
+    print("    score = 75")
+    print("    if score >= 80:")
+    print("        print('A')")
+    print("    elif score >= 70:")
+    print("        print('B')")
+    print("    else:")
+    print("        print('C')\n")
+
+    input("Press Enter to try all three...\n")
+
+    while True:
+        print("\nWrite a program using `if`, `elif`, and `else`.")
+        print("• Must include all three")
+        print("• Type 'END' when done\n")
+
+        code_lines = []
+
+        while True:
+            line = input(">>> ")
+            if line.lower() == "exit":
+                print("\nLesson ended. Great job learning control flow!")
+                return
+            if line.upper() == "END":
+                break
+            code_lines.append(line)
+
+        code_string = "\n".join(code_lines)
+
+        if not code_string.strip():
+            print("❌ You didn't write any code.\n")
+            continue
+
+        if "if " not in code_string or "elif" not in code_string or "else:" not in code_string:
+            print("❌ Your code must include `if`, `elif`, and `else`.\n")
+            continue
+
+        print("\nExecuting your code...\n")
+
+        try:
+            exec(code_string, {})
+            print("✅ Fantastic! You used full control flow correctly.\n")
+        except IndentationError:
+            print("❌ Indentation error.\n")
+            continue
+        except SyntaxError as e:
+            print(f"❌ Syntax error: {e}\n")
+            continue
+        except Exception as e:
+            print(f"❌ Error: {e}\n")
+            continue
+
+        again = input("Do you want to try again? (yes/no): ").lower()
+        if again != "yes":
+            break
+
+    # ===============================
+    # RECAP
+    # ===============================
+    print("\n🎉 Lesson 3 Recap: Control Flow")
+    print("- `if` runs code when a condition is true.")
+    print("- `else` runs when the condition is false.")
+    print("- `elif` allows multiple conditions.")
+    print("- Indentation is VERY important in Python.\n")
+    print("Great work! 🚀")
+    

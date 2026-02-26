@@ -42,19 +42,31 @@ def lesson_functions():
             print("❌ You didn't write any code. Please try again.\n")
             continue
 
-        print("\nYour code:")
-        print(code_string)
-        print("\nExecuting your code...\n")
-
         try:
-            exec(code_string)
-            print("\n✅ Nice! Your function worked.\n")
+            namespace = {}
+            exec(code_string, {}, namespace)
+
+            functions = {
+                name: obj for name, obj in namespace.items()
+                if callable(obj)
+            }
+
+            if not functions:
+                print("❌ You did not define any function using `def`.\n")
+                continue
+
+            print(f"✅ Function detected: {', '.join(functions.keys())}")
+            print("✅ Great! You defined and ran a function.\n")
+
         except IndentationError:
             print("❌ Indentation error. Check your spacing.\n")
+            continue
         except SyntaxError:
             print("❌ Syntax error. Remember to use def and proper colons.\n")
+            continue
         except Exception as e:
             print(f"❌ Error: {e}\n")
+            continue
 
         again = input("Do you want to try another function? (yes/no): ").lower()
         if again != "yes":
@@ -94,19 +106,39 @@ def lesson_functions():
             print("❌ You didn't write any code. Please try again.\n")
             continue
 
-        print("\nYour code:")
-        print(code_string)
-        print("\nExecuting your code...\n")
-
         try:
-            exec(code_string)
-            print("\n✅ Excellent! Your function with parameters worked.\n")
+            namespace = {}
+            exec(code_string, {}, namespace)
+
+            functions = {
+                name: obj for name, obj in namespace.items()
+                if callable(obj)
+            }
+
+            if not functions:
+                print("❌ No function found. Use `def`.\n")
+                continue
+
+            has_param = False
+            for func in functions.values():
+                if func.__code__.co_argcount >= 1:
+                    has_param = True
+
+            if not has_param:
+                print("❌ Your function needs at least ONE parameter.\n")
+                continue
+
+            print("✅ Excellent! Your function accepts parameters.\n")
+
         except IndentationError:
             print("❌ Indentation error. Check your spacing.\n")
+            continue
         except SyntaxError:
             print("❌ Syntax error. Check function definition and call.\n")
+            continue
         except Exception as e:
             print(f"❌ Error: {e}\n")
+            continue
 
         again = input("Do you want to try another one? (yes/no): ").lower()
         if again != "yes":
@@ -147,19 +179,39 @@ def lesson_functions():
             print("❌ You didn't write any code. Please try again.\n")
             continue
 
-        print("\nYour code:")
-        print(code_string)
-        print("\nExecuting your code...\n")
-
         try:
-            exec(code_string)
-            print("\n✅ Awesome! Your function returned a value correctly.\n")
+            namespace = {}
+            exec(code_string, {}, namespace)
+
+            functions = {
+                name: obj for name, obj in namespace.items()
+                if callable(obj)
+            }
+
+            if not functions:
+                print("❌ No function found.\n")
+                continue
+
+            has_return = False
+            for func in functions.values():
+                if "return" in code_string:
+                    has_return = True
+
+            if not has_return:
+                print("❌ Your function must RETURN a value using `return`.\n")
+                continue
+
+            print("✅ Awesome! Your function returns a value correctly.\n")
+
         except IndentationError:
             print("❌ Indentation error. Check your spacing.\n")
+            continue
         except SyntaxError:
             print("❌ Syntax error. Check return statement.\n")
+            continue
         except Exception as e:
             print(f"❌ Error: {e}\n")
+            continue
 
         again = input("Do you want to try another one? (yes/no): ").lower()
         if again != "yes":
@@ -175,5 +227,5 @@ def lesson_functions():
     print("- Functions can return values.")
     print("- Indentation is very important.\n")
     print("Great work! 🚀")
-
-
+    
+    
